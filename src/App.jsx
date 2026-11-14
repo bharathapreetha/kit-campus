@@ -2,7 +2,7 @@
 import { useRef, useState } from "react";
 import "./App.css";
 
-const API_BASE_URL = import.meta.env.VITE_API_URL;
+const API_BASE_URL = "https://kit-campus-backend.onrender.com";
 
 const courses = [
   {

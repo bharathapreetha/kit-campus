@@ -2,6 +2,8 @@
 import { useRef, useState } from "react";
 import "./App.css";
 
+const API_BASE_URL = import.meta.env.VITE_API_URL;
+
 const courses = [
   {
     name: "B.Sc Computer Science",
@@ -84,7 +86,7 @@ function App() {
         try {
           // STEP 1: Deepgram Speech-to-Text
           const response = await fetch(
-            "http://127.0.0.1:8000/transcribe",
+            `${API_BASE_URL}/transcribe`,
             {
               method: "POST",
               body: formData
@@ -109,7 +111,7 @@ function App() {
           setStatus("Understanding your question...");
 
           const chatResponse = await fetch(
-            "http://127.0.0.1:8000/ask",
+            `${API_BASE_URL}/ask`,
             {
               method: "POST",
               headers: {
@@ -141,7 +143,7 @@ function App() {
           setStatus("Preparing voice response...");
 
           const speechResponse = await fetch(
-            "http://127.0.0.1:8000/speak",
+            `${API_BASE_URL}/speak`,
             {
               method: "POST",
               headers: {
